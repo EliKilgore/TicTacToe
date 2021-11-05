@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height:95vh;
+    font-size: 32px;
 }
 
 main {
@@ -19,17 +20,19 @@ main {
 
 header {
     text-align: center;
-    font-size: 50px;
+    font-size: 100px;
     margin: 0px;
     padding: 16px;
 }
 
 .turn-label {
     text-align: center;
-    font-size: 32px;
     margin:0px;
     padding:16px;
+}
 
+.game-over {
+    font-size: 50px
 }
 .game-board {
     display: grid;

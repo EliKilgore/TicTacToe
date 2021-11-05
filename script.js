@@ -42,6 +42,7 @@ const displayController = (() => {
         gameBoard.reset()
         gameController.reset()
         updateGameboard()
+        turnLabel.classList.remove('game-over')
         setTurnLabel(gameController.getCurrentPlayerSymbol())
     } )
 
@@ -49,10 +50,12 @@ const displayController = (() => {
         turnLabel.textContent= `Player Turn: ${text}`
     }
     const setWinner = (text) => {
-        turnLabel.textContent = `The Winner is ${text}`
+        turnLabel.textContent = `The Winner is ${text}!`
+        turnLabel.classList.add('game-over')
     }
     const setTie = () => {
         turnLabel.textContent = 'The game is a Tie!'
+        turnLabel.classList.add('game-over')
     }
     const updateGameboard = () => {
         for (let i = 0; i < fieldElements.length; i++) {
@@ -94,19 +97,19 @@ const gameController = (() => {
     const checkWinner = (symbol) => {
         if (gameBoard.getField(0) == symbol && gameBoard.getField(1) == symbol && gameBoard.getField(2) == symbol) {
             isOver = true
-        } else if  (gameBoard.getField[3] === getCurrentPlayerSymbol() && gameBoard.getField[4] === getCurrentPlayerSymbol() && gameBoard.getField[5] === getCurrentPlayerSymbol() ) {
+        } else if  (gameBoard.getField(0) == symbol && gameBoard.getField(4) == symbol && gameBoard.getField(8) == symbol) {
             isOver = true
-        } else if  (gameBoard.getField[6] === getCurrentPlayerSymbol() && gameBoard.getField[7] === getCurrentPlayerSymbol() && gameBoard.getField[8] === getCurrentPlayerSymbol() ) {
+        } else if  (gameBoard.getField(3) == symbol && gameBoard.getField(4) == symbol && gameBoard.getField(5) == symbol) {
             isOver = true
-        } else if  (gameBoard.getField[0] === getCurrentPlayerSymbol() && gameBoard.getField[3] === getCurrentPlayerSymbol() && gameBoard.getField[4] === getCurrentPlayerSymbol() ) {
+        } else if  (gameBoard.getField(6) == symbol && gameBoard.getField(7) == symbol && gameBoard.getField(8) == symbol) {
             isOver = true
-        } else if  (gameBoard.getField[1] === getCurrentPlayerSymbol() && gameBoard.getField[4] === getCurrentPlayerSymbol() && gameBoard.getField[7] === getCurrentPlayerSymbol() ) {
+        } else if  (gameBoard.getField(0) == symbol && gameBoard.getField(3) == symbol && gameBoard.getField(6) == symbol) {
             isOver = true
-        } else if  (gameBoard.getField[2] === getCurrentPlayerSymbol() && gameBoard.getField[5] === getCurrentPlayerSymbol() && gameBoard.getField[8] === getCurrentPlayerSymbol() ) {
+        } else if  (gameBoard.getField(1) == symbol && gameBoard.getField(4) == symbol && gameBoard.getField(7) == symbol) {
             isOver = true
-        } else if  (gameBoard.getField[0] === getCurrentPlayerSymbol() && gameBoard.getField[4] === getCurrentPlayerSymbol() && gameBoard.getField[8] === getCurrentPlayerSymbol() ) {
+        } else if  (gameBoard.getField(2) == symbol && gameBoard.getField(5) == symbol && gameBoard.getField(8) == symbol) {
             isOver = true
-        } else if  (gameBoard.getField[2] === getCurrentPlayerSymbol() && gameBoard.getField[4] === getCurrentPlayerSymbol() && gameBoard.getField[6] === getCurrentPlayerSymbol() ) {
+        } else if  (gameBoard.getField(2) == symbol && gameBoard.getField(4) == symbol && gameBoard.getField(6) == symbol) {
             isOver = true
         }
     }
